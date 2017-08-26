@@ -16,7 +16,12 @@ android:
     - extra-google-m2repository
     - extra-android-m2repository
     - addon-google_apis-google-24
+before_install:
+    # 添加保存证书的文件夹
+    - mkdir "$ANDROID_HOME/licenses" || true
+    # 把证书信息添加到证书文件中
+    - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
 before_script:
     - chmod +x gradlew
 script:
-  - "./gradlew assembleRelease"
+    - "./gradlew assembleRelease"
