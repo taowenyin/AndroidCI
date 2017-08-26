@@ -25,3 +25,9 @@ before_script:
     - chmod +x gradlew
 script:
     - "./gradlew assembleRelease"
+deploy:
+    provider: releases
+    user: "taowenyin"
+    password: "taowenyin"
+    file: app/build/outputs/apk/app-release.apk
+    skip_cleanup: true
