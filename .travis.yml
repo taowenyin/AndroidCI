@@ -1,0 +1,20 @@
+language: android
+android:
+  components:
+    # 使用最新的Android SDK Tools
+    - tools
+    - platform-tools
+
+    # 设置构建Android项目的构建工具版本
+    - build-tools-26.0.1
+
+    # 设置Android项目构建的目标版本
+    - android-25
+
+    # 添加必要的组件
+    - extra-google-google_play_services
+    - extra-google-m2repository
+    - extra-android-m2repository
+    - addon-google_apis-google-24
+script:
+  - "./gradlew assembleRelease"
