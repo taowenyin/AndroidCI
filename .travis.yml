@@ -27,7 +27,7 @@ script:
     - "./gradlew assembleRelease"
 deploy:
     provider: releases
-    user: "taowenyin"
-    password: "05200902"
+    user: "GITHUB taowenyin"
+    password: "GITHUB 05200902"
     file: app/build/outputs/apk/app-release.apk
     skip_cleanup: true
