@@ -18,7 +18,8 @@ android:
   - addon-google_apis-google-24
 before_install:
   # 添加签名文件的解密指令
-  - openssl aes-256-cbc -K $encrypted_8dbd61925ec5_key -iv $encrypted_8dbd61925ec5_iv -in keys/taowenyin.jks.enc -out keys/taowenyin.jks -d
+  - openssl aes-256-cbc -K $encrypted_8dbd61925ec5_key -iv $encrypted_8dbd61925ec5_iv
+    -in keys/taowenyin.jks.enc -out keys/taowenyin.jks -d
   # 添加保存证书的文件夹
   - mkdir "$ANDROID_HOME/licenses" || true
   # 把证书信息添加到证书文件中
