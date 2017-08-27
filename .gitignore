@@ -53,3 +53,7 @@ google-services.json
 freeline.py
 freeline/
 freeline_project_description.json
+
+# Markdown File
+markdown-exported-files.xml
+markdown-navigator.xml
