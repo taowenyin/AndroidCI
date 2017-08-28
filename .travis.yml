@@ -56,6 +56,6 @@ deploy:
     tags: true
     # 指定部署的目标
     repo: taowenyin/AndroidCI
-  after_deploy:
-    # 把构建的内容发布到FIR平台
-    - fir publish app/build/outputs/apk/app-release.apk -T $FIR_TOKEN -c "`git cat-file tag $TRAVIS_TAG`"
+after_deploy:
+  # 把构建的内容发布到FIR平台
+  - fir publish app/build/outputs/apk/app-release.apk -T $FIR_TOKEN -c "`git cat-file tag $TRAVIS_TAG`"
