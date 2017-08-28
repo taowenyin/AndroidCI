@@ -1,4 +1,8 @@
 language: android
+
+# 在构建系统中使用容器来提高效率
+sudo: false
+
 android:
   components:
   # 使用最新的Android SDK Tools
