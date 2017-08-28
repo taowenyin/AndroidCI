@@ -1,5 +1,11 @@
 apply plugin: 'com.android.application'
 
+// 获取当前版本的Commit次数
+def gitCommitCount = Integer.parseInt('git rev-list HEAD --count'.execute([], project.rootDir).text.trim())
+
+// 获取当前版本的TAG名称
+def gitCurrentTag = 'git describe --tags --abbrev=0'.execute([], project.rootDir).text.trim()
+
 android {
     compileSdkVersion 25
     buildToolsVersion "26.0.1"
@@ -7,8 +13,8 @@ android {
         applicationId "cn.edu.siso.androidci"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode gitCommitCount
+        versionName gitCurrentTag
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {
