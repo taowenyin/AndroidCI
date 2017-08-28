@@ -17,6 +17,9 @@ android:
   - extra-android-m2repository
   - addon-google_apis-google-24
 before_install:
+  # 安装fir-cli相关命令行工具
+  - gem install fir-cli
+
   # 添加签名文件的解密指令，注意该文件只能在Linux上生成
   - openssl aes-256-cbc -K $encrypted_f38811b06a7a_key -iv $encrypted_f38811b06a7a_iv -in keys/taowenyin.jks.enc -out keys/taowenyin.jks -d
 
@@ -51,5 +54,8 @@ deploy:
   on:
     # 设置只有新TAG是才进行部署
     tags: true
-    #指定部署的目标
+    # 指定部署的目标
     repo: taowenyin/AndroidCI
+  after_deploy:
+    # 把构建的内容发布到FIR平台
+    - fir publish app/build/outputs/apk/app-release.apk -T $FIR_TOKEN -c "`git cat-file tag $TRAVIS_TAG`"
